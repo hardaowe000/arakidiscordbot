@@ -2,7 +2,7 @@ import discord # imports the Discord library
 from discord.ext import commands
 import os, random, asyncio
 
-token = ODM0MTU2MjIxODk2MzI3MjA4.YH8yhQ.-C8i1jb7UfvJAdGfGroLq1y4LNs
+token = "ODM0MTU2MjIxODk2MzI3MjA4.YH8yhQ.-C8i1jb7UfvJAdGfGroLq1y4LNs"
 
 tree = 778733501180149806
 desert = 778733501180149801
