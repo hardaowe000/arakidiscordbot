@@ -1,6 +1,6 @@
 import discord # imports the Discord library
 from discord.ext import commands
-import os, random, asyncio
+import random, asyncio
 
 token = "ODM0MTU2MjIxODk2MzI3MjA4.YH8yhQ.-C8i1jb7UfvJAdGfGroLq1y4LNs"
 
@@ -12,14 +12,14 @@ channel_ids = {
   "gen": 778733500639477766
 }
 items_dict = {
-  "corpse_part": [30, "Corpse Part",desert, 778733500148482087],
-  "cats": [7, "Cat",desert, 778760552905834527],
-  "dio_diary": [8, "Dio Diary",desert,784484983308943402],
-  "green_child": [9, "Green Child",desert,784484772310417438],
-  "arrow": [.5,"Arrow",desert,778733500169322583],
-  "golden_arrow": [2,"Golden Arrow",desert,778733500169322584],
-  "diamond_arrow": [7,"Diamond Arrow",desert,778744411798110248],
-  "berries": [1.5,"Berry",tree, 778733500169322577]
+  "corpse_part": [720, "Corpse Part",desert, 778733500148482087],
+  "cats": [168, "Cat",desert, 778760552905834527],
+  "dio_diary": [192, "Dio Diary",desert,784484983308943402],
+  "green_child": [216, "Green Child",desert,784484772310417438],
+  "arrow": [12,"Arrow",desert,778733500169322583],
+  "golden_arrow": [48,"Golden Arrow",desert,778733500169322584],
+  "diamond_arrow": [168,"Diamond Arrow",desert,778744411798110248],
+  "berries": [36,"Berry",tree, 778733500169322577]
 }
 corpse_parts = [
   ["The Head",    778733500148482087],
@@ -36,7 +36,7 @@ corpse_parts = [
 client = commands.Bot(command_prefix = "j!")
 prefix = 'j!'
 
-updates = ["Lowered tick speed for now to test out corpse part variation"]
+updates = ["Alpha test, everything has been pushed to an online hosting platform, we'll see how it goes."]
 
 def CE(**info):
   info.setdefault('title','Araki Bot')
@@ -72,7 +72,7 @@ class items():
   async def itemTiming(self):
     while True:
       print(f"{self.thing} ({self.description}): {self.hour}/{self.goal}")
-      await asyncio.sleep(1) # 180
+      await asyncio.sleep(180) # 180
       self.hour += .05
       self.hour = round(self.hour, 2)
       if self.hour >= self.goal:
@@ -90,7 +90,7 @@ class items():
     tick = 0
     while True:
       print(f"- - {tick} - -")
-      await asyncio.sleep(1) # 180
+      await asyncio.sleep(180) # 180
       tick += .05
       tick = round(tick, 2)
   async def claimMessage(self, load):
@@ -132,11 +132,11 @@ async def on_ready():
     asyncio.create_task(x.itemTiming())
   asyncio.create_task(items.spacer())
   
-@client.event
-async def on_message(message):
-    if message.content.startswith(prefix) and message.author != client.user:
-        channel = message.channel
-        print(message.content)
+# @client.event
+# async def on_message(message):
+#     if message.content.startswith(prefix) and message.author != client.user:
+#         channel = message.channel
+#         print(message.content)
 
 
 client.run(token)
