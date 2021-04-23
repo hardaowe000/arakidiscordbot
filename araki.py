@@ -12,14 +12,14 @@ channel_ids = {
   "gen": 778733500639477766
 }
 items_dict = {
-  "corpse_part": [720, "Corpse Part",desert, 778733500148482087],
-  "cats": [168, "Cat",desert, 778760552905834527],
-  "dio_diary": [192, "Dio Diary",desert,784484983308943402],
-  "green_child": [216, "Green Child",desert,784484772310417438],
-  "arrow": [12,"Arrow",desert,778733500169322583],
-  "golden_arrow": [48,"Golden Arrow",desert,778733500169322584],
-  "diamond_arrow": [168,"Diamond Arrow",desert,778744411798110248],
-  "berries": [36,"Berry",tree, 778733500169322577]
+  "corpse_part": [720, "Corpse Part",channel_ids["desert"], 778733500148482087],
+  "cats": [168, "Cat",channel_ids["desert"], 778760552905834527],
+  "dio_diary": [192, "Dio Diary",channel_ids["desert"],784484983308943402],
+  "green_child": [216, "Green Child",channel_ids["desert"],784484772310417438],
+  "arrow": [12,"Arrow",channel_ids["desert"],778733500169322583],
+  "golden_arrow": [48,"Golden Arrow",channel_ids["desert"],778733500169322584],
+  "diamond_arrow": [168,"Diamond Arrow",channel_ids["desert"],778744411798110248],
+  "berries": [36,"Berry",channel_ids["tree"], 778733500169322577]
 }
 corpse_parts = [
   ["The Head",    778733500148482087],
@@ -132,11 +132,10 @@ async def on_ready():
     asyncio.create_task(x.itemTiming())
   asyncio.create_task(items.spacer())
   
-# @client.event
-# async def on_message(message):
-#     if message.content.startswith(prefix) and message.author != client.user:
-#         channel = message.channel
-#         print(message.content)
+@client.event
+async def on_message(message):
+  if message.content.startswith(prefix) and message.author != client.user:
+    message.channel.send("Heard you")
 
 
 client.run(token)
